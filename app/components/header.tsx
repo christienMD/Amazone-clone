@@ -2,6 +2,7 @@ import Image from "next/image";
 import {
   ShoppingCartIcon,
   MagnifyingGlassIcon,
+  Bars3Icon,
 } from "@heroicons/react/24/outline";
 
 const Header = () => {
@@ -40,7 +41,9 @@ const Header = () => {
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
           <div className="relative link flex items-center">
-            <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded full font-bold text-black">0</span>
+            <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded full font-bold text-black">
+              0
+            </span>
             <ShoppingCartIcon className="h-10" />
             <p className="hidden md:inline font-extrabold md:text-sm mt-2">
               Basket
@@ -50,7 +53,20 @@ const Header = () => {
       </div>
 
       {/* bottom nav */}
-      <div className=""></div>
+      <div className="flex space-x-3 p-2 pl-6 items-center bg-amazon_blue-light text-white text-sm">
+        <p className="h-6 mr-2 link flex gap-1 items-center">
+          <Bars3Icon className="h-6" /> All
+        </p>
+        <p className="link">Prime Video</p>
+        <p className="link">Amazone Business</p>
+        <p className="link">Today&apos;s Deals</p>
+        <p className="hidden link lg:inline-flex">Electronics</p>
+        <p className="hidden link lg:inline-flex">Food & Grocery</p>
+        <p className="hidden link lg:inline-flex">Prime</p>
+        <p className="hidden link lg:inline-flex">Buy Again</p>
+        <p className="hidden link lg:inline-flex">Shopper Toolkit</p>
+        <p className="hidden link lg:inline-flex">Health & Personal Care</p>
+      </div>
     </header>
   );
 };
