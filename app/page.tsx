@@ -1,10 +1,19 @@
-import Image from "next/image";
+import Banner from "./components/Banner";
 import Header from "./components/Header";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="bg-gray-100">
       <Header />
+
+      <main className="max-w-screen-2xl mx-auto">
+        {/* Banner */}
+        <Banner />
+
+
+        {/* productFeed */}
+        
+      </main>
     </div>
   );
 }
