@@ -21,3 +21,9 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components {
+  .link {
+    @apply cursor-pointer hover:underline
+  }
+}
