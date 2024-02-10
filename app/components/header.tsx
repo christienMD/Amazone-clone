@@ -4,20 +4,26 @@ import {
   MagnifyingGlassIcon,
   Bars3Icon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import { getServerSession } from "next-auth";
 
-const Header = () => {
+const Header = async () => {
+  const session = await getServerSession();
+
   return (
     <header>
       {/* top nav */}
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2 gap-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
-          <Image
-            alt="header"
-            src="https://links.papareact.com/f90"
-            height={150}
-            width={40}
-            className="object-contain cursor-pointer"
-          />
+          <Link href="/">
+            <Image
+              alt="header"
+              src="https://links.papareact.com/f90"
+              height={150}
+              width={40}
+              className="object-contain cursor-pointer"
+            />
+          </Link>
         </div>
 
         {/* search */}
@@ -32,15 +38,23 @@ const Header = () => {
         {/* right */}
 
         <div className="text-white flex items-center text-xs space-x-6 mx-6">
-          <div className="link">
-            <p>hello sharon</p>
+          <Link href="/api/auth/signin" className="link">
+            <p>
+              {session ? (
+                <Link href="/api/auth/signout">
+                  Hello {session.user!.name}{" "}
+                </Link>
+              ) : (
+                "Sign In"
+              )}
+            </p>
             <p className="font-extrabold md:text-sm">Account & Lists</p>
-          </div>
+          </Link>
           <div className="link">
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
-          <div className="relative link flex items-center">
+          <Link href="/checkout" className="relative link flex items-center">
             <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded full font-bold text-black">
               0
             </span>
@@ -48,7 +62,7 @@ const Header = () => {
             <p className="hidden md:inline font-extrabold md:text-sm mt-2">
               Basket
             </p>
-          </div>
+          </Link>
         </div>
       </div>
 
