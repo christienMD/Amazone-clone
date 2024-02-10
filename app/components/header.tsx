@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
+import ProductsItemCount from "./ProductsItemCount";
 
 const Header = async () => {
   const session = await getServerSession();
@@ -55,9 +56,7 @@ const Header = async () => {
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
           <Link href="/checkout" className="relative link flex items-center">
-            <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded full font-bold text-black">
-              0
-            </span>
+            <ProductsItemCount />
             <ShoppingCartIcon className="h-10" />
             <p className="hidden md:inline font-extrabold md:text-sm mt-2">
               Basket

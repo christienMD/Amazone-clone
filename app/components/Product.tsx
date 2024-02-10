@@ -1,39 +1,39 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Currency from "react-currency-formatter";
-import { Product } from "./ProductFeed";
 import StarRating from "./StarRating";
 import { CheckIcon } from "@heroicons/react/24/solid";
+import { Product } from "../reducers/productsReducer";
+import ProductsContext from "../contexts/productsContext";
 
 interface Props {
   product: Product;
 }
 
-const ProductCard = ({
-  product: { category, image: imageUrl, title, description, price },
-}: Props) => {
+const ProductCard = ({ product }: Props) => {
+  const { products, dispatch } = useContext(ProductsContext);
   const [hasPrime] = useState(Math.random() < 0.5);
 
   return (
     <div className="border relative flex flex-col m-4 bg-white z-30 p-5">
       <p className="absolute top-2 right-2 text-xs italic text-gray-400">
-        {category}
+        {product.category}
       </p>
       <Image
-        src={imageUrl}
+        src={product.image}
         alt="product-image"
         height={100}
         width={100}
         className="object-contain"
       />
 
-      <h4 className="my-3">{title}</h4>
+      <h4 className="mt-3 mb-0.5">{product.title}</h4>
       <StarRating />
-      <p className="text-xs line-clamp-2 my-2">{description}</p>
+      <p className="text-xs line-clamp-2 my-2">{product.description}</p>
       <div className="mb-5">
-        <Currency quantity={price} />
+        <Currency quantity={product.price} />
       </div>
       {hasPrime && (
         <div className="flex items-center space-x-2 -mt-5">
@@ -42,7 +42,12 @@ const ProductCard = ({
         </div>
       )}
 
-      <button className="mt-auto button">Add To Basket</button>
+      <button
+        onClick={() => dispatch({ type: "ADD_ITEM_TO_BASCKET", product })}
+        className="mt-auto button"
+      >
+        Add To Basket
+      </button>
     </div>
   );
 };

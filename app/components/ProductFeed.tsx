@@ -1,15 +1,8 @@
+import { Product } from "../reducers/productsReducer";
 import ProductCard from "./Product";
 import Image from "next/image";
 
-export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating?: { rate: number; count: number };
-}
+
 
 const ProductFeed = async () => {
   const res = await fetch("https://fakestoreapi.com/products");
