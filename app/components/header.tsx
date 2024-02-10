@@ -1,30 +1,20 @@
-import Image from "next/image";
-import {
-  ShoppingCartIcon,
-  MagnifyingGlassIcon,
-  Bars3Icon,
-} from "@heroicons/react/24/outline";
-import Link from "next/link";
-import { getServerSession } from "next-auth";
-import ProductsItemCount from "./ProductsItemCount";
+"use client";
 
-const Header = async () => {
-  const session = await getServerSession();
+import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { useSession } from "next-auth/react";
+import Logo from "@/app/components/Logo";
+import Link from "next/link";
+import ShoppingBasket from "./ShoppingBasket";
+
+const Header = () => {
+  const { status, data: session } = useSession();
 
   return (
-    <header>
+    <header className="sticky top-0 z-50">
       {/* top nav */}
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2 gap-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
-          <Link href="/">
-            <Image
-              alt="header"
-              src="https://links.papareact.com/f90"
-              height={150}
-              width={40}
-              className="object-contain cursor-pointer"
-            />
-          </Link>
+          <Logo />
         </div>
 
         {/* search */}
@@ -41,7 +31,7 @@ const Header = async () => {
         <div className="text-white flex items-center text-xs space-x-6 mx-6">
           <Link href="/api/auth/signin" className="link">
             <p>
-              {session ? (
+              {status === "authenticated" ? (
                 <Link href="/api/auth/signout">
                   Hello {session.user!.name}{" "}
                 </Link>
@@ -55,13 +45,7 @@ const Header = async () => {
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
-          <Link href="/checkout" className="relative link flex items-center">
-            <ProductsItemCount />
-            <ShoppingCartIcon className="h-10" />
-            <p className="hidden md:inline font-extrabold md:text-sm mt-2">
-              Basket
-            </p>
-          </Link>
+          <ShoppingBasket />
         </div>
       </div>
 
