@@ -27,16 +27,28 @@ const productsReducer = (
   if (action.type === "ADD_ITEM_TO_BASCKET")
     return [action.product, ...products];
   if (action.type === "REMOVE_ITEM_FROM_BASKET") {
-   const productIndex = products.findIndex(productItem => productItem.id === action.productId);
+    const productIndex = products.findIndex(
+      (productItem) => productItem.id === action.productId
+    );
 
-   let newProducts = [...products];
-   (productIndex >= 0) ? newProducts.splice(productIndex, 1): console.warn(`can't remove product (id: ${action.productId}) as it's not in the basket`)
-   products = newProducts;
-   return products
+    let newProducts = [...products];
+    productIndex >= 0
+      ? newProducts.splice(productIndex, 1)
+      : console.warn(
+          `can't remove product (id: ${action.productId}) as it's not in the basket`
+        );
+    products = newProducts;
+    return products;
   }
-    // return products.filter((product) => product.id !== action.productId);
+  // return products.filter((product) => product.id !== action.productId);
 
   return products;
+};
+
+export const productTotal = (products: Product[]) => {
+  return products
+    .reduce((total, product) => product.price + total, 0)
+    .toFixed(2);
 };
 
 export default productsReducer;
