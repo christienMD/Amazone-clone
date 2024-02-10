@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import { CheckIcon } from "@heroicons/react/24/solid";
 import Currency from "react-currency-formatter";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Product } from "../reducers/productsReducer";
 import StarRating from "./StarRating";
+import ProductsContext from "../contexts/productsContext";
 
 interface Props {
   productItem: Product;
@@ -12,6 +14,7 @@ interface Props {
 
 const CheckoutProduct = ({ productItem }: Props) => {
   const [hasPrime] = useState(Math.random() < 0.5);
+  const { dispatch } = useContext(ProductsContext);
 
   return (
     <div className="grid grid-cols-5">
@@ -34,16 +37,33 @@ const CheckoutProduct = ({ productItem }: Props) => {
 
         {hasPrime && (
           <div className="flex items-center space-x-2 mt-1">
-            <Image
-              loading="lazy"
-              src="https://links.papareact.com/fdw"
-              alt=""
-              height={10}
-              width={10}
-            />
+            <CheckIcon className="h-12 font-extrabold text-yellow-500" />
+
             <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
           </div>
         )}
+      </div>
+
+      <div className="flex flex-col gap-2 my-auto justify-self-end">
+        <button
+          onClick={() =>
+            dispatch({ type: "ADD_ITEM_TO_BASCKET", product: productItem })
+          }
+          className="mt-auto button"
+        >
+          Add To Basket
+        </button>
+        <button
+          onClick={() =>
+            dispatch({
+              type: "REMOVE_ITEM_FROM_BASKET",
+              productId: productItem.id,
+            })
+          }
+          className="mt-auto button"
+        >
+          Remove From Basket
+        </button>
       </div>
     </div>
   );

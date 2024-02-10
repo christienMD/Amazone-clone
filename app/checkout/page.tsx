@@ -13,13 +13,13 @@ const CheckOutPage = () => {
     <div className="bg-gray-100">
       <Header />
 
-      <main className="lg:flex container mx-14">
+      <main className="lg:flex mx-3 md:mx-8">
         {/* left */}
-        <div className="flex-grow m-5 shadow-sm">
+        <div className="flex-grow my-5 shadow-sm">
           <Image
             alt="checkout-img"
             src="https://links.papareact.com/ikj"
-            width={900}
+            width={800}
             height={245}
             className="object-contain"
           />
@@ -32,7 +32,7 @@ const CheckOutPage = () => {
             </h1>
 
             {products.map((productItem, index) => (
-              <CheckoutProduct key={index} productItem={productItem}/>
+              <CheckoutProduct key={index} productItem={productItem} />
             ))}
           </div>
         </div>
