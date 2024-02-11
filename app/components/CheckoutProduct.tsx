@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { CheckIcon } from "@heroicons/react/24/solid";
 import Currency from "react-currency-formatter";
 import { useState, useContext } from "react";
 import { Product } from "../reducers/productsReducer";
 import StarRating from "./StarRating";
 import ProductsContext from "../contexts/productsContext";
+import HasPrime from "./HasPrime";
 
 interface Props {
   productItem: Product;
@@ -35,13 +35,7 @@ const CheckoutProduct = ({ productItem }: Props) => {
         <p className="text-xs my-2 line-clamp-3">{productItem.description}</p>
         <Currency quantity={productItem.price} />
 
-        {hasPrime && (
-          <div className="flex items-center space-x-2 mt-1">
-            <CheckIcon className="h-12 font-extrabold text-yellow-500" />
-
-            <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
-          </div>
-        )}
+        {hasPrime && <HasPrime />}
       </div>
 
       <div className="flex flex-col gap-2 my-auto justify-self-end">
