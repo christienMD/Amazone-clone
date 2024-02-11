@@ -34,7 +34,6 @@ const CheckOutPage = () => {
 
   return (
     <div className="bg-gray-100">
-      <Header />
 
       <main className="lg:flex mx-3 md:mx-8">
         {/* left */}
