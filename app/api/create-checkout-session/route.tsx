@@ -41,3 +41,5 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
   return NextResponse.json({ id: checkoutSession.id }, { status: 200 });
 }
+
+// acct_1OiR3pG1PM8eEvON
