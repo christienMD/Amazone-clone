@@ -10,12 +10,15 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
+    "@stripe/stripe-js": "^2.4.0",
+    "axios": "^1.6.7",
     "next": "14.1.0",
     "next-auth": "^4.24.5",
     "react": "^18",
     "react-currency-formatter": "^1.1.0",
     "react-dom": "^18",
-    "react-responsive-carousel": "^3.2.23"
+    "react-responsive-carousel": "^3.2.23",
+    "stripe": "^14.16.0"
   },
   "devDependencies": {
     "@types/node": "^20",
