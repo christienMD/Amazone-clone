@@ -4,12 +4,12 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import Header from "../components/Header";
 import { useContext } from "react";
-import Currency from "react-currency-formatter";
 import { loadStripe } from "@stripe/stripe-js";
 import ProductsContext from "../contexts/productsContext";
 import CheckoutProduct from "../components/CheckoutProduct";
 import { productTotal } from "../reducers/productsReducer";
 import axios from "axios";
+import Currency from "../components/Currency";
 const stripePromise = loadStripe(process.env.stripe_public_key!);
 
 const CheckOutPage = () => {
@@ -67,7 +67,7 @@ const CheckOutPage = () => {
                 Subtotal ({products.length} items):{" "}
               </h2>
               <span className="font-bold">
-                <Currency quantity={productTotal(products)} />
+                <Currency price={parseInt(productTotal(products))} />
               </span>
 
               <button
