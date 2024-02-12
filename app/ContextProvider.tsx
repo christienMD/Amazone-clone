@@ -8,9 +8,11 @@ const ContextProvider = ({ children }: { children: ReactNode }) => {
   const [products, dispatch] = useReducer(productsReducer, []);
 
   return (
-    <ProductsContext.Provider value={{ products, dispatch }}>
-      {children}
-    </ProductsContext.Provider>
+    <html lang="en">
+      <ProductsContext.Provider value={{ products, dispatch }}>
+        {children}
+      </ProductsContext.Provider>
+    </html>
   );
 };
 
