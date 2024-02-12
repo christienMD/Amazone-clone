@@ -10,9 +10,9 @@ const Logo = () => {
       onClick={() => router.push("/")}
       alt="header"
       src="https://links.papareact.com/f90"
-      height={150}
-      width={40}
-      className="object-contain cursor-pointer"
+      height={160}
+      width={70}
+      className="object-contain cursor-pointer mx-2"
     />
   );
 };
