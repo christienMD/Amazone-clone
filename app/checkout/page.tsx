@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import { useContext } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import ProductsContext from "../contexts/productsContext";
