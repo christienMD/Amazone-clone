@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useContext, useState } from "react";
-import Currency from "react-currency-formatter";
 import ProductsContext from "../contexts/productsContext";
 import { Product } from "../reducers/productsReducer";
 import HasPrime from "./HasPrime";
 import StarRating from "./StarRating";
+import Currency from "./Currency";
 
 interface Props {
   product: Product;
@@ -33,7 +33,7 @@ const ProductCard = ({ product }: Props) => {
       <StarRating />
       <p className="text-xs line-clamp-2 my-2">{product.description}</p>
       <div className="mb-5">
-        <Currency quantity={product.price} />
+        <Currency price={product.price} />
       </div>
       {hasPrime && <HasPrime />}
 

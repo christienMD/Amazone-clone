@@ -2,8 +2,6 @@ import { Product } from "../reducers/productsReducer";
 import ProductCard from "./Product";
 import Image from "next/image";
 
-
-
 const ProductFeed = async () => {
   const res = await fetch("https://fakestoreapi.com/products");
   const products: Product[] = await res.json();
@@ -20,7 +18,7 @@ const ProductFeed = async () => {
         alt=""
         width={125}
         height={125}
-        layout="responsive"
+        loading="lazy"
       />
 
       <div className="md:col-span-2">

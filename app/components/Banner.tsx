@@ -19,7 +19,6 @@ const Banner = () => {
       >
         <div className="w-full">
           <Image
-            layout="responsive"
             width={100}
             height={100}
             loading="lazy"
@@ -30,7 +29,6 @@ const Banner = () => {
         </div>
         <div className="">
           <Image
-            layout="responsive"
             width={100}
             height={100}
             loading="lazy"
@@ -40,7 +38,6 @@ const Banner = () => {
         </div>
         <div className="">
           <Image
-            layout="responsive"
             width={100}
             height={100}
             loading="lazy"
