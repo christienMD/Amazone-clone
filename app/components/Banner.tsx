@@ -17,7 +17,7 @@ const Banner = () => {
         showThumbs={false}
         interval={5000}
       >
-        <div className="w-full">
+        <div className="w-full relative">
           <Image
             width={100}
             height={100}
@@ -25,22 +25,25 @@ const Banner = () => {
             alt="banner-image"
             src="https://links.papareact.com/gi1"
             className="w-full"
+            layout="responsive"
           />
         </div>
-        <div className="">
+        <div className="relative">
           <Image
             width={100}
             height={100}
             loading="lazy"
+            layout="responsive"
             alt="banner-image"
             src="https://links.papareact.com/6ff"
           />
         </div>
-        <div className="">
+        <div className="relative">
           <Image
             width={100}
             height={100}
             loading="lazy"
+            layout="responsive"
             alt="banner-image"
             src="https://links.papareact.com/7ma"
           />

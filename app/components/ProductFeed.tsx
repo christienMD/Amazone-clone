@@ -19,6 +19,7 @@ const ProductFeed = async () => {
         width={125}
         height={125}
         loading="lazy"
+        layout="responsive"
       />
 
       <div className="md:col-span-2">
