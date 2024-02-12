@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Currency from "react-currency-formatter";
 import { useState, useContext } from "react";
 import { Product } from "../reducers/productsReducer";
 import StarRating from "./StarRating";
 import ProductsContext from "../contexts/productsContext";
 import HasPrime from "./HasPrime";
+import Currency from "./Currency";
 
 interface Props {
   productItem: Product;
@@ -33,7 +33,7 @@ const CheckoutProduct = ({ productItem }: Props) => {
           <StarRating />
         </div>
         <p className="text-xs my-2 line-clamp-3">{productItem.description}</p>
-        <Currency quantity={productItem.price} />
+        <Currency price={productItem.price} />
 
         {hasPrime && <HasPrime />}
       </div>
