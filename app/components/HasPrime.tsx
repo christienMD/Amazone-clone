@@ -2,7 +2,7 @@ import { CheckIcon } from "@heroicons/react/24/solid";
 
 const HasPrime = () => {
   return (
-    <div className="flex items-center space-x-2 mt-1">
+    <div className="flex items-center space-x-2 my-1 mb-2">
       <div className="flex tracking-tighter">
         <CheckIcon className="h-7 font-extrabold text-yellow-500" />
         <span className="text-blue-600 -ms-1">Prime</span>
