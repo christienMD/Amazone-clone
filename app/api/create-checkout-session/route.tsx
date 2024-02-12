@@ -1,10 +1,9 @@
 import { Product } from "@/app/reducers/productsReducer";
 import { NextRequest, NextResponse } from "next/server";
-import Stripe from "stripe";
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-export async function POST(request: NextRequest, response: NextResponse) {
+export async function POST(request: NextRequest) {
   const { products, email } = await request.json();
 
   const transformedItems = products.map((product: Product) => ({

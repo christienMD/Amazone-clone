@@ -1,5 +1,5 @@
 import Banner from "./components/Banner";
-import Header from "@/app/components/Header";
+import Header from "./components/Header";
 
 import ProductFeed from "./components/ProductFeed";
 
