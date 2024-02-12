@@ -18,13 +18,16 @@ const CheckoutProduct = ({ productItem }: Props) => {
 
   return (
     <div className="grid grid-cols-5">
-      <Image
-        src={productItem.image}
-        alt=""
-        height={140}
-        width={140}
-        objectFit="contain"
-      />
+      <div className="relative h-[160px] w-[125px] ms-3">
+        <Image
+          src={productItem.image}
+          alt=""
+          loading="lazy"
+          fill
+          quality={100}
+          className="object-contain"
+        />
+      </div>
 
       {/* middle col */}
       <div className="col-span-3 ms-6 mx-5">

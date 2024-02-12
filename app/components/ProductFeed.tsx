@@ -11,16 +11,16 @@ const ProductFeed = async () => {
       {products.slice(0, 5).map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
-
-      <Image
-        className="md:col-span-full w-full px-5"
-        src="https://links.papareact.com/dyz"
-        alt=""
-        width={125}
-        height={125}
-        loading="lazy"
-        layout="responsive"
-      />
+      <div className="relative h-[300px] md:col-span-full mx-5">
+        <Image
+          className="w-full h-full object-cover"
+          src="https://links.papareact.com/dyz"
+          alt=""
+          fill
+          loading="lazy"
+          quality={100}
+        />
+      </div>
 
       <div className="md:col-span-2">
         {products.slice(5, 6).map((product) => (
