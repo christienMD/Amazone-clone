@@ -2,7 +2,7 @@
 
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useSession } from "next-auth/react";
-import Logo from "@/components/Logo";
+import Logo from "@/app/components/Logo";
 import Link from "next/link";
 import ShoppingBasket from "./ShoppingBasket";
 

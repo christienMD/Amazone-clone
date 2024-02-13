@@ -1,4 +1,4 @@
-import { Product } from "@/reducers/productsReducer";
+import { Product } from "@/app/reducers/productsReducer";
 import { NextRequest, NextResponse } from "next/server";
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
