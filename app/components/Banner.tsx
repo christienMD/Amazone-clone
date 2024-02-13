@@ -21,7 +21,7 @@ const Banner = () => {
           <Image
             alt="banner-image"
             src="https://links.papareact.com/gi1"
-            className="w-full object-cover"
+            className="object-cover"
             loading="lazy"
             fill
             quality={100}
@@ -34,6 +34,7 @@ const Banner = () => {
             quality={100}
             alt="banner-image"
             src="https://links.papareact.com/6ff"
+            className="object-cover"
           />
         </div>
         <div className="relative h-screen">
@@ -43,6 +44,7 @@ const Banner = () => {
             quality={100}
             alt="banner-image"
             src="https://links.papareact.com/7ma"
+            className="object-cover"
           />
         </div>
       </Carousel>
