@@ -21,7 +21,7 @@ const Banner = () => {
           <Image
             alt="banner-image"
             src="https://links.papareact.com/gi1"
-            className="w-full"
+            className="w-full object-cover"
             loading="lazy"
             fill
             quality={100}
